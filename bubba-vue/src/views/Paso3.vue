@@ -1,3 +1,3 @@
 <template>
-    <h1>Encuesta</h1>
+    <h1>Encuestaaaa</h1>
 </template>
