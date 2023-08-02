@@ -1,4 +1,5 @@
 <template>
+
   <div class="collections">
     <BagCollection
       v-for="collection in collections"
@@ -17,6 +18,10 @@
 import { ref } from 'vue'
 import BagCollection from '../components/BagCollection.vue'
 import router from '../router/index.js'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
 
 const collections = ref([
   { 
@@ -25,8 +30,8 @@ const collections = ref([
     subtitle: 'LINE', 
     imageUrl: '../../public/Originals/Originals3.jpg',
     products: [
-      { id: 'Originals1', name: 'Producto 1', imageUrl: '../../public/Originals/Originals2.jpg' },
-      { id: 'Originals2', name: 'Producto 2', imageUrl: '../../public/Originals/Originals1.jpg' },
+      { id: 'Originals1', name: 'Original1', imageUrl: '../../public/Originals/Originals3.jpg' },
+      { id: 'Originals2', name: 'Original2', imageUrl: '' },
     ]
   },
   { 
@@ -54,13 +59,12 @@ const collections = ref([
 
 ])
 
-const selectCollection = (collection) => {
-  router.push({ 
-    name: 'producto', 
-    params: { products: collection.products } 
-  })
-}
+store.commit('setCollections', collections.value) 
 
+const selectCollection = (collection) => {
+  store.commit('selectCollection', collection)
+  router.push({ name: 'producto' }) 
+}
 
 
 ///////////////////////////
@@ -68,4 +72,7 @@ const selectCollection = (collection) => {
 const goToPaso2 = () => {
     router.push({path: '/producto'})
 }
+
+
+
 </script>

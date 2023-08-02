@@ -3,9 +3,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './components/store'
 
-const app = createApp(App)
+createApp(App).use(router).use(store).mount('#app')
 
-app.use(router)
 
-app.mount('#app')
+
+// const app = createApp(App)
+
+// app.use(router)
+
+// app.mount('#app')
