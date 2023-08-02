@@ -30,8 +30,8 @@ const collections = ref([
     subtitle: 'LINE', 
     imageUrl: '../../public/Originals/Originals3.jpg',
     products: [
-      { id: 'Originals1', name: 'Original1', imageUrl: '../../public/Originals/Originals3.jpg' },
-      { id: 'Originals2', name: 'Original2', imageUrl: '' },
+      { id: 'Originals1', name: 'Original1', imageUrl: '../../public/Originals/Originals1.jpg' },
+      { id: 'Originals2', name: 'Original2', imageUrl: '../../public/Originals/Originals2.jpg' },
     ]
   },
   { 
@@ -40,9 +40,9 @@ const collections = ref([
     subtitle: 'LINE', 
     imageUrl: '../../public/Victoria/Victoria2.jpg',
     products: [
-      { id: 'Victoria1', name: 'Producto 1', imageUrl: 'url-producto-1' },
-      { id: 'Victoria2', name: 'Producto 2', imageUrl: 'url-producto-2' },
-      { id: 'Victoria3', name: 'Producto 3', imageUrl: 'url-producto-3' },
+      { id: 'Victoria1', name: 'Producto 1', imageUrl: '../../public/Victoria/Victoria1.jpg' },
+      { id: 'Victoria2', name: 'Producto 3', imageUrl: '../../public/Victoria/Victoria3.jpg' },
+      { id: 'Victoria3', name: 'Producto 4', imageUrl: '../../public/Victoria/Victoria4.jpg' },
     ]
   },
   { 
@@ -51,9 +51,7 @@ const collections = ref([
     subtitle: 'LINE',
     imageUrl: '../../public/Fancy/Fancy1.jpg',
     products: [
-      { id: 'Fancy1', name: 'Producto 1', imageUrl: 'url-producto-1' },
-      { id: 'Fancy2', name: 'Producto 2', imageUrl: 'url-producto-2' },
-      { id: 'Fancy3', name: 'Producto 3', imageUrl: 'url-producto-3' },
+      { id: 'Fancy1', name: 'Producto 1', imageUrl: '../../public/Fancy/Fancy2.jpg' },
     ]
   },
 
