@@ -28,32 +28,32 @@
   </template>
   
   <script>
-import Layout from '../components/Layout.vue';
+    import Layout from '../components/Layout.vue';
 
   
-  export default {
-    data() {
-        return {
-            titulo: 'Formulario de Puntuación',
-            campo1: '',
-            campo2: '',
-            campo3: '',
-            puntuacion: 0,
-            tituloPagina: 'Encuesta',
-        };
-    },
-    methods: {
-        submitForm() {
-            const formData = {
-                campo1: this.campo1,
-                campo2: this.campo2,
-                campo3: this.campo3,
-                puntuacion: this.puntuacion,
+    export default {
+        data() {
+            return {
+                titulo: 'Formulario de Puntuación',
+                campo1: '',
+                campo2: '',
+                campo3: '',
+                puntuacion: 0,
+                tituloPagina: 'Encuesta',
             };
-            console.log(formData);
         },
-    },
-    components: { Layout }
-};
+        methods: {
+            submitForm() {
+                const formData = {
+                    campo1: this.campo1,
+                    campo2: this.campo2,
+                    campo3: this.campo3,
+                    puntuacion: this.puntuacion,
+                };
+                console.log(formData);
+            },
+        },
+        components: { Layout }
+    };
   </script>
   
