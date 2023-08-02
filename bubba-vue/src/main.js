@@ -3,9 +3,18 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './components/store'
+import { register } from 'swiper/element/bundle';
 
-const app = createApp(App)
+// register Swiper custom elements
+register();
 
-app.use(router)
+createApp(App).use(router).use(store).mount('#app')
 
-app.mount('#app')
+
+
+// const app = createApp(App)
+
+// app.use(router)
+
+// app.mount('#app')

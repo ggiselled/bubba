@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps({
   title: String,
@@ -15,7 +15,9 @@ const props = defineProps({
   imageUrl: String
 })
 
-const select = ref(() => {
+const emit = defineEmits(['select'])
+
+const select = () => {
   emit('select')
-})
+}
 </script>

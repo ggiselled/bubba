@@ -9,17 +9,20 @@ const router = createRouter({
     {
       path: '/',
       name: 'colecciones',
-      component: Paso1
+      component: Paso1,
+      props: true
     },
     {
       path: '/producto',
       name: 'producto',
-      component: Paso2
+      component: Paso2,
+      props: true
     },
     {
       path: '/encuesta',
       name: 'encuesta',
-      component: Paso3
+      component: Paso3,
+      props: true
     }
   ]
 })
