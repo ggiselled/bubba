@@ -16,10 +16,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './components/store'
-import { register } from 'swiper/element/bundle';
 
-// register Swiper custom elements
-register();
+
+
 
 const app = createApp(App, {}, {
   compilerOptions: {
