@@ -10,26 +10,26 @@
   </template>
   
   <script>
-  export default {
-    name: 'LayOut',
-    props: {
-      titulo: {
-        type: String,
-        required: true,
-      },
-    },
-  };
-  </script>
-  
-  <style>
-  div {
-    padding: 20px;
-  }
-  
-  header {
-    text-align: center;
-    background-color: #f0f0f0;
-    padding: 10px;
-  }
+    export default {
+        name: 'LayOut',
+        props: {
+        titulo: {
+            type: String,
+            required: true,
+        },
+        },
+    };
+    </script>
+    
+    <style>
+    div {
+        padding: 20px;
+    }
+    
+    header {
+        text-align: center;
+        background-color: #f0f0f0;
+        padding: 10px;
+    }
   </style>
   
