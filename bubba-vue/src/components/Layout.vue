@@ -1,35 +1,41 @@
 <template>
-    <div>
-      <header>
-        <h1>{{ titulo }}</h1>
-      </header>
-      <main>
+  <div class="layout">
+    <header class="header">
+      <!-- Agrega aquí el código para mostrar tu logo -->
+      <!-- Por ejemplo, <img src="ruta_del_logo" alt="Logo" /> -->
+      <slot name="logo"></slot>
+    </header>
+    <main class="content">
+      <div class="centered-content">
         <slot></slot>
-      </main>
-    </div>
-  </template>
-  
-  <script>
-    export default {
-        name: 'LayOut',
-        props: {
-        titulo: {
-            type: String,
-            required: true,
-        },
-        },
-    };
-    </script>
-    
-    <style>
-    div {
-        padding: 20px;
-    }
-    
-    header {
-        text-align: center;
-        background-color: #f0f0f0;
-        padding: 10px;
-    }
-  </style>
-  
+      </div>
+    </main>
+  </div>
+</template>
+
+<style>
+/* Estilos del layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {}
+
+/* Estilos para centrar el contenido */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-content {
+  max-width: 600px;
+  width: 100%;
+}
+
+
+</style>
