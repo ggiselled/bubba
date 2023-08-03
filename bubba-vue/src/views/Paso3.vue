@@ -1,40 +1,28 @@
 <template>
     <Layout :titulo="tituloPagina">
-      <h2>{{ titulo }}</h2>
-      <form @submit.prevent="submitForm">
-        <div>
-          <label for="campo1">Campo 1:</label>
-          <input v-model="campo1" type="text" id="campo1" required />
-        </div>
-  
-        <div>
-          <label for="campo2">Campo 2:</label>
-          <input v-model="campo2" type="text" id="campo2" required />
-        </div>
-  
-        <div>
-          <label for="campo3">Campo 3:</label>
-          <input v-model="campo3" type="text" id="campo3" required />
-        </div>
-  
-        <div>
-          <label>Puntuación:</label>
-          <star-rating v-model="puntuacion" :star-size="25" :increment="0.5" />
-        </div>
-  
-        <button type="submit">Enviar</button>
-      </form>
+      <div class="pagina3-content">
+        <h2>{{ titulo }}</h2>
+        <DynamicForm
+          :firstName="{ fieldName: 'nombre', label: 'Nombre', placeholder: 'Nombre' }"
+          :lastName="{ fieldName: 'apellido', label: 'Apellido', placeholder: 'Apellido' }"
+          :email="{ fieldName: 'email', label: 'Email', type: 'email', placeholder: 'Email' }"
+        />
+        
+      </div>
+      <template #footer>
+        <p class="footer">MUCHAS GRACIAS</p>
+      </template>
     </Layout>
   </template>
   
   <script>
     import Layout from '../components/Layout.vue';
-
+    import DynamicForm from '../components/EncuestaPage/DynamicForm.vue';
   
     export default {
         data() {
             return {
-                titulo: 'Formulario de Puntuación',
+                titulo: 'Deja tu calificación y obten un 15% de descuento en tu primera compra',
                 campo1: '',
                 campo2: '',
                 campo3: '',
@@ -53,7 +41,22 @@
                 console.log(formData);
             },
         },
-        components: { Layout }
+        components: { Layout, DynamicForm }
     };
   </script>
   
+  <style>
+  h2 {
+    font-family: 'Gotham Rounded Bold Regular', sans-serif;
+    font-size: 1.4rem;
+    font-weight:lighter;
+    text-align: center;
+  }
+
+  .pagina3-content {
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+    margin: 0 auto; 
+  }
+  </style>
