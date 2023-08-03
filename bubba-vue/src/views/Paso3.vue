@@ -45,7 +45,7 @@
     };
   </script>
   
-  <style>
+  <style scoped>
   h2 {
     font-family: 'Gotham Rounded Bold Regular', sans-serif;
     font-size: 1.4rem;

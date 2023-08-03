@@ -1,9 +1,10 @@
 <template>
-  <div class="layout">
+  <div class="layout container">
     <header class="header">
       <img class="logo" src="../../public/Logo/logo-bubba_600x800px_2.jpg" alt="Logo">
       <div class="logo-line"></div>
       <!-- <slot name="logo"></slot> -->
+      <slot name="title"></slot>
     </header>
     <main class="content">
       <div class="centered-content">
@@ -16,16 +17,23 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .layout {
   display: flex;
   margin: 20px 0;
   flex-direction: column;
-  height: 100vh;
   justify-content: space-between;
 }
 
+.container {
+  width: 679px;
+  height: 1208px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
 .header {
+  height: 20%;
   text-align: center;
 }
 
@@ -47,6 +55,7 @@
 }
 
 .content {
+  height: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,5 +73,6 @@
   font-size: 1.5rem;
   font-weight: lighter;
   text-align: center;
+  height: 10%;
 }
 </style>
