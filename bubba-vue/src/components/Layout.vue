@@ -1,7 +1,9 @@
 <template>
-  <div class="layout container">
+   <div class="layout" :class="{ 'container': useContainer }">
     <header class="header">
-      <img class="logo" src="../../public/Logo/logo-bubba_600x800px_2.jpg" alt="Logo">
+      <a href="/">
+        <img class="logo" src="../../public/Logo/logo-bubba_600x800px_2.jpg" alt="Logo">
+      </a>
       <div class="logo-line"></div>
       <!-- <slot name="logo"></slot> -->
       <slot name="title"></slot>
@@ -17,12 +19,26 @@
   </div>
 </template>
 
+<script setup>
+import { defineProps, toRefs } from 'vue'
+
+const props = defineProps({
+  useContainer: {
+    type: Boolean,
+    default: true
+  }
+})
+
+const { useContainer } = toRefs(props)
+</script>
+
 <style scoped>
 .layout {
   display: flex;
   margin: 20px 0;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .container {
@@ -60,7 +76,6 @@
 }
 
 .centered-content {
-  max-width: 600px;
   width: 100%;
 }
 

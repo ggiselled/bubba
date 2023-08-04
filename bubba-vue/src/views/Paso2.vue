@@ -1,21 +1,20 @@
 <template>
-  <Layout>
+  <Layout :useContainer="false">
     <template #title>
-      <h1>TU COLECCIÓN</h1>
+      <h1 v-if="selectedCollection">{{ selectedCollection.title }}</h1>
+      <h2 v-if="selectedCollection">{{ selectedCollection.subtitle }}</h2>
     </template>
     <div class="product-container">
       <div class="product-content">
         <div class="product-contentProducts" v-if="selectedCollection" v-for="product in selectedCollection.products" :key="product.id" @click="selectProduct(product)">
-          <h3>{{ product.name }}</h3>
           <img :src="product.imageUrl" :alt="product.name" />
         </div>
       </div>
       <div class="product-3D">
-        <Product3D v-if="selectedProduct" :images="selectedProduct.images" style="width: 150%"/>
+        <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
       </div>
     </div>
-
-    <h2 @click="goToPaso3">Ir a vista Paso3</h2>
+    <CustomBtn :label="'CONTINUAR'" :onClick="goToPaso3" style="margin-top: -60px;"/>
   </Layout>
 </template>
 
@@ -26,6 +25,7 @@ import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import Product3D from '../components/Product3D.vue';
 import Layout from '../components/Layout.vue';
+import CustomBtn from '../components/CustomBtn.vue';
 
 const store = useStore()
 const selectedProduct = ref(null)
@@ -48,23 +48,45 @@ const goToPaso3 = () => {
 </script>
 
 <style scoped>
+@import '../assets/style/globals.scss';
+
+h1, h2{
+  font-family: 'GothamMedium';
+  font-weight: 100;
+}
+
+h2{
+  margin-top: -20px;
+}
+
 .product-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 80px;
+  overflow-x: hidden;
 }
 
 .product-content{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-contentProducts{
-  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .product-contentProducts img{
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.container{
+  margin: 0 auto !important;
 }
 
 </style>

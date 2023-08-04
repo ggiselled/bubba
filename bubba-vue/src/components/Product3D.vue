@@ -1,6 +1,5 @@
 <template>
-    <div 
-      class="container" 
+    <div class="container"
       @mousedown="startDrag" 
       @mousemove="dragging" 
       @mouseup="stopDrag"
@@ -58,20 +57,12 @@ const dragging = (e) => {
   
   <style scoped>
   .container {
-    
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    cursor: grab;
-    transition: opacity 0.5s;
+    cursor: none;
   }
   
-  .container img {
+  img {
   
-    max-width: 100%;
+    width: 690px
   }
   </style>
   

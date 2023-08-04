@@ -2,7 +2,7 @@
   <Layout>
     <div class="layout-paso1"></div>
     <template #title>
-      <h1>COLECCIONES</h1>
+      <h1 class="title">COLECCIONES</h1>
     </template>
     <div class="paso1-container">
       <div v-if="collections" v-for="collection in collections" :key="collection.id" @click="selectCollection(collection)" class="paso1-content">
@@ -12,10 +12,7 @@
           <p>{{ collection.subtitle }}</p>
         </div>
       </div>
-      <h2 @click="goToPaso2">Ir a vista Paso2</h2>
-
     </div>
-
   </Layout>
 </template>
 
@@ -34,14 +31,15 @@ const selectCollection = (collection) => {
   router.push({ path: '/producto' })
 }
 
-const goToPaso2 = () => {
-  router.push({ path: '/producto' })
-}
 </script>
 
 <style scoped>
 @import '../assets/style/globals.scss';
 
+h1, h2, h3, p{
+  font-family: 'GothamMedium';
+  font-weight: 200;
+}
 .paso1-content{
   display: flex;
   flex-direction: column;
