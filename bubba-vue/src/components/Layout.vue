@@ -26,8 +26,6 @@
 }
 
 .container {
-  width: 679px;
-  height: 1208px;
   margin: 0 auto;
   overflow: auto;
 }
