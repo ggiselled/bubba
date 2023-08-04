@@ -56,9 +56,7 @@ const dragging = (e) => {
 </script>
   
   <style scoped>
-  .container {
-    cursor: none;
-  }
+
   
   img {
   
