@@ -18,7 +18,7 @@
 
 <script setup>
     import { ref } from 'vue';
-
+    
     const ratings = [
     {
         name: 'rating1',
