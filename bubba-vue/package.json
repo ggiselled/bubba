@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "build-sw": "npx workbox injectManifest workbox-config.js"
   },
   "dependencies": {
     "vue": "^3.3.4",
@@ -22,6 +23,9 @@
     "eslint-plugin-vue": "^9.15.1",
     "prettier": "^3.0.0",
     "sass": "^1.64.2",
-    "vite": "^4.4.6"
+    "vite": "^4.4.6",
+    "vite-plugin-pwa": "^0.16.4",
+    "workbox-build": "^7.0.0",
+    "workbox-cli": "^7.0.0"
   }
 }
