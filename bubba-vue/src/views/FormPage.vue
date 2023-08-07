@@ -7,10 +7,9 @@
           :lastName="{ fieldName: 'apellido', label: 'Apellido', placeholder: 'Apellido' }"
           :email="{ fieldName: 'email', label: 'Email', type: 'email', placeholder: 'Email' }"
         />
-        
       </div>
       <template #footer>
-        <p class="footer">MUCHAS GRACIAS</p>
+        <!-- <p class="footer">MUCHAS GRACIAS</p> -->
       </template>
     </Layout>
   </template>
@@ -56,7 +55,7 @@
   .pagina3-content {
     display: flex;
     flex-direction: column;
-    width: 50%; 
+    width: 66%; 
     margin: 0 auto; 
   }
   </style>

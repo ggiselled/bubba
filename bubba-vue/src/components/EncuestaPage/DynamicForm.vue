@@ -27,6 +27,9 @@
         :placeholder="email.placeholder"
         @input="updateEmail"
       />
+      <div class="rating">
+        <StarRatingComponent />
+      </div>
       <button type="submit">Enviar</button>
     </form>
   </div>
@@ -35,10 +38,11 @@
 <script>
 import InputField from './InputField.vue';
 import { defineComponent } from "vue";
+import StarRatingComponent from './StarRatingComponent.vue';
 
 export default defineComponent({
   components: {
-    InputField,
+    InputField, StarRatingComponent
   },
   props: {
     firstName: { type: Object, required: true },
@@ -89,8 +93,15 @@ export default defineComponent({
 .dynamic-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
+  align-self: center;
+  width: 75%;
+}
+
+.rating{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 button {
@@ -110,6 +121,7 @@ button {
   text-align: center;
 }
 button:hover {
-  background-color: #0056b3;
+  background-color: #252525;
+  color: #fff;
 }
 </style>
