@@ -14,7 +14,7 @@
         <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
       </div>
     </div>
-    <CustomBtn :label="'CONTINUAR'" :onClick="goToPaso3" style="margin-top: -40px;"/>
+    <CustomBtn :label="'CONTINUAR'" :onClick="goToPaso3" style="margin-top: -20px;"/>
   </Layout>
 </template>
 

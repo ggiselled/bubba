@@ -1,0 +1,21 @@
+{
+    "name": "Espejo Bubba",
+    "short_name": "Bubba",
+    "description": "Espejo vitual Bubba",
+    "icons": [
+      {
+        "src": "#",
+        "sizes": "#",
+        "type": "image/png"
+      },
+      {
+        "src": "#",
+        "sizes": "#",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000"
+  }
