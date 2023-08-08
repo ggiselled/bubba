@@ -5,16 +5,18 @@
       <h2 v-if="selectedCollection">{{ selectedCollection.subtitle }}</h2>
       <h2 v-if="selectedProduct">{{selectedProduct.name }}</h2>
     </template>
-    <div class="product-container">
-      <div class="product-content">
-        <div class="product-contentProducts" v-if="selectedCollection" v-for="product in selectedCollection.products" :key="product.id" @click="selectProduct(product)">
-          <img :src="product.imageUrl" :alt="product.name" />
+    <template #content>
+      <div class="product-container">
+        <div class="product-content">
+          <div class="product-contentProducts" v-if="selectedCollection" v-for="product in selectedCollection.products" :key="product.id" @click="selectProduct(product)">
+            <img :src="product.imageUrl" :alt="product.name" />
+          </div>
+        </div>
+        <div class="product-3D">
+          <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
         </div>
       </div>
-      <div class="product-3D">
-        <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
-      </div>
-    </div>
+    </template>
     <CustomBtn :label="'CONTINUAR'" :onClick="goToPaso3" style="margin-top: -20px;"/>
   </Layout>
 </template>

@@ -6,11 +6,11 @@
       </a>
       <div class="logo-line"></div>
       <!-- <slot name="logo"></slot> -->
-      <slot name="title"></slot>
+      <!-- <slot name="title"></slot> -->
     </header>
     <main class="content">
       <div class="centered-content">
-        <slot></slot>
+        <slot name="content"></slot>
       </div>
     </main>
     <footer class="footer">
@@ -39,10 +39,15 @@ const { useContainer } = toRefs(props)
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+
+  max-height: 1208px;
+  min-height: 1208px;
+  max-width: 679px;
+  min-width: 679px;
 }
 
 .container {
-  margin: 0 auto;
+  margin:  auto;
   overflow: auto;
 }
 
@@ -68,7 +73,7 @@ const { useContainer } = toRefs(props)
   background-color: black;
 }
 
-.content {
+/* .content {
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -77,11 +82,11 @@ const { useContainer } = toRefs(props)
 
 .centered-content {
   width: 100%;
-}
+} */
 
 .footer {
   text-align: center;
-  margin-bottom: 2rem;
+  /* margin-top: 8rem; */
   font-family: 'Gotham Rounded Bold Regular', sans-serif;
   font-size: 1.5rem;
   font-weight: lighter;

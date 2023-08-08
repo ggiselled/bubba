@@ -20,13 +20,6 @@
         :placeholder="email.placeholder"
         @input="updateEmail"
       />
-      <InputField
-        :fieldName="email.fieldName"
-        :label="email.label"
-        :type="email.type"
-        :placeholder="email.placeholder"
-        @input="updateEmail"
-      />
       <div class="rating">
         <StarRatingComponent />
       </div>

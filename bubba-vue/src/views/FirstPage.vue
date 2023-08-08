@@ -4,15 +4,17 @@
     <template #title>
       <h1 class="title">COLLECTIONS</h1>
     </template>
-    <div class="paso1-container">
-      <div v-if="collections" v-for="collection in collections" :key="collection.id" @click="selectCollection(collection)" class="paso1-content">
-        <img :src="collection.imageUrl" :alt="collection.title" />
-        <div class="paso1-text">
-          <h3>{{ collection.title }}</h3>
-          <p>{{ collection.subtitle }}</p>
+    <template #content>
+      <div class="paso1-container">
+        <div v-if="collections" v-for="collection in collections" :key="collection.id" @click="selectCollection(collection)" class="paso1-content">
+          <img :src="collection.imageUrl" :alt="collection.title" />
+          <div class="paso1-text">
+            <h3>{{ collection.title }}</h3>
+            <p>{{ collection.subtitle }}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </Layout>
 </template>
 
