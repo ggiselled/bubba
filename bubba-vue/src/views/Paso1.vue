@@ -2,7 +2,7 @@
   <Layout>
     <div class="layout-paso1"></div>
     <template #title>
-      <h1 class="title">COLECCIONES</h1>
+      <h1 class="title">COLLECTIONS</h1>
     </template>
     <div class="paso1-container">
       <div v-if="collections" v-for="collection in collections" :key="collection.id" @click="selectCollection(collection)" class="paso1-content">

@@ -3,6 +3,7 @@
     <template #title>
       <h1 v-if="selectedCollection">{{ selectedCollection.title }}</h1>
       <h2 v-if="selectedCollection">{{ selectedCollection.subtitle }}</h2>
+      <h2 v-if="selectedProduct">{{selectedProduct.name }}</h2>
     </template>
     <div class="product-container">
       <div class="product-content">

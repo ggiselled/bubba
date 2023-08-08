@@ -3,11 +3,11 @@ import { createStore } from 'vuex'
 const collections = [
   { 
     id: 1, 
-    title: 'CLASSIC',
-    subtitle: 'LINE', 
+    title: 'CLASSIC Y MATE',
+    subtitle: 'COLLECTION', 
     imageUrl: 'Originals/classic-port.png',
     products: [
-      { id: 'Originals1', name: 'Original1', imageUrl: 'Originals/classicp1.png', images: 
+      { id: 'Originals1', name: 'CLASSIC REGULAR', imageUrl: 'Originals/classicp1.png', images: 
       [
         'mochi-rosa/R1 - Classic Regular Backpack Rosa/010001.png', 
         'mochi-rosa/R1 - Classic Regular Backpack Rosa/010002.png',
@@ -51,7 +51,7 @@ const collections = [
         'mochi-rosa/R1 - Classic Regular Backpack Rosa/010041.png',
 
       ] },
-      { id: 'Originals2', name: 'Original2', imageUrl: 'Originals/classicp2.png', images: 
+      { id: 'Originals2', name: 'CLASSIC MINI', imageUrl: 'Originals/classicp2.png', images: 
       [
         '/mochi-celeste/R1 - Classic Mini Backpack/010001.png', 
         '/mochi-celeste/R1 - Classic Mini Backpack/010002.png',
@@ -100,10 +100,10 @@ const collections = [
   { 
     id: 2, 
     title: 'VICTORIA',
-    subtitle: 'LINE', 
+    subtitle: 'COLLECTION', 
     imageUrl: 'Victoria/victoria-port.png',
     products: [
-      { id: 'Victoria1', name: 'Producto 1', imageUrl: 'Victoria/victoriap1.png', images: 
+      { id: 'Victoria1', name: 'CARTERA', imageUrl: 'Victoria/victoriap1.png', images: 
       [
         '/riño-rosa/R2/010001.png', 
         '/riño-rosa/R2/010002.png',
@@ -147,16 +147,16 @@ const collections = [
         '/riño-rosa/R2/010041.png',
       
       ] },
-      { id: 'Victoria2', name: 'Producto 3', imageUrl: 'Victoria/victoriap2.png', images: [/* ruta de las imágenes 3D aquí */] },
+      { id: 'Victoria2', name: 'TOTE BAG', imageUrl: 'Victoria/victoriap2.png', images: [/* ruta de las imágenes 3D aquí */] },
     ]
   },
   { 
     id: 3, 
     title: 'PUFFER', 
-    subtitle: 'LINE',
+    subtitle: 'COLLECTION',
     imageUrl: 'Puffer/puffer-port.png',
     products: [
-      { id: 'Puffer1', name: 'Producto 1', imageUrl: 'Puffer/pufferp1.png', images: [
+      { id: 'Puffer1', name: 'POUCH', imageUrl: 'Puffer/pufferp1.png', images: [
         '/puffer-verde/R1 - Pouch Bubba Puffer/010001.png', 
         '/puffer-verde/R1 - Pouch Bubba Puffer/010002.png',
         '/puffer-verde/R1 - Pouch Bubba Puffer/010003.png',
@@ -198,7 +198,7 @@ const collections = [
         '/puffer-verde/R1 - Pouch Bubba Puffer/010040.png',
         '/puffer-verde/R1 - Pouch Bubba Puffer/010041.png',
       ] },
-      { id: 'Puffer2', name: 'Producto 2', imageUrl: '/Puffer/puffer-port.png', images: [
+      { id: 'Puffer2', name: 'TRAVEL BAG', imageUrl: '/Puffer/puffer-port.png', images: [
         '/bolsopuffer-negro/R1 - Travel Bag Puffer/010001.png', 
         '/bolsopuffer-negro/R1 - Travel Bag Puffer/010002.png',
         '/bolsopuffer-negro/R1 - Travel Bag Puffer/010003.png',
