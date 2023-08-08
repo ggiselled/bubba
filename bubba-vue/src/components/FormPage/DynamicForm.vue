@@ -14,9 +14,9 @@
         @input="updateLastName"
       />
       <InputField
+        :type="email.type"
         :fieldName="email.fieldName"
         :label="email.label"
-        :type="email.type"
         :placeholder="email.placeholder"
         @input="updateEmail"
       />

@@ -18,7 +18,7 @@
   
   <script>
     import Layout from '../components/Layout.vue';
-    import DynamicForm from '../components/EncuestaPage/DynamicForm.vue';
+    import DynamicForm from '../components/FormPage/DynamicForm.vue';
   
     export default {
         data() {
@@ -52,9 +52,9 @@
     font-size: 22px;
     font-weight:lighter;
     text-align: center;
-    margin: 10px 4rem;
-    margin-top: 7rem;
-    margin-bottom: 3rem;
+    margin: 0px 4rem;
+    /* margin-top: 7rem; */
+    margin-bottom: 6rem;
   }
 
   .pagina3-content {

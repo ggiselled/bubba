@@ -1,6 +1,13 @@
 <template>
   <div class="input-field">
-    <input :type="type" :id="fieldName" :name="fieldName" :placeholder="placeholder" :value="internalValue" @input="updateValue($event.target.value)" />
+    <input 
+      :type="type" 
+      :id="fieldName" 
+      :name="fieldName" 
+      :placeholder="placeholder" 
+      :value="internalValue" 
+      @input="updateValue($event.target.value)" 
+    />
   </div>
 </template>
 

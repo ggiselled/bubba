@@ -6,7 +6,7 @@
       </a>
       <div class="logo-line"></div>
       <!-- <slot name="logo"></slot> -->
-      <!-- <slot name="title"></slot> -->
+      <slot name="title"></slot>
     </header>
     <main class="content">
       <div class="centered-content">
@@ -35,7 +35,6 @@ const { useContainer } = toRefs(props)
 <style scoped>
 .layout {
   display: flex;
-  margin: 20px 0;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
@@ -62,6 +61,7 @@ const { useContainer } = toRefs(props)
   height: auto;
   align-self: center;
   margin: 0 auto;
+  z-index: 1;
 }
 .logo-line {
   max-width: 33%;
@@ -71,8 +71,14 @@ const { useContainer } = toRefs(props)
   height: 1px;
   margin: 0 auto;
   background-color: black;
+  z-index: 2;
+  position: relative;
+  top: -2rem;
 }
-
+.content {
+    max-height: 100vh;
+    overflow-y: auto; /* Esto permite el desplazamiento si el contenido es más alto que el contenedor */
+  }
 /* .content {
   height: 70%;
   display: flex;
@@ -80,13 +86,14 @@ const { useContainer } = toRefs(props)
   align-items: center;
 }
 
+
 .centered-content {
   width: 100%;
 } */
 
 .footer {
   text-align: center;
-  /* margin-top: 8rem; */
+  margin-bottom: 1rem;
   font-family: 'Gotham Rounded Bold Regular', sans-serif;
   font-size: 1.5rem;
   font-weight: lighter;
@@ -94,3 +101,4 @@ const { useContainer } = toRefs(props)
   height: 10%;
 }
 </style>
+

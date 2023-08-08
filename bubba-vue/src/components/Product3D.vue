@@ -84,8 +84,7 @@ const updateFrame = (x) => {
 
   
   img {
-  
-    width: 690px
+    width: 100%
   }
   </style>
   
