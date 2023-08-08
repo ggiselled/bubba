@@ -12,11 +12,16 @@
         </div>
       </div>
       <div class="product-3D">
-        <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
+        <Product3D v-if="selectedProduct" :images="selectedProductImages"/>
       </div>
     </div>
     <CustomBtn :label="'CONTINUAR'" :onClick="goToPaso3" style="margin-top: -20px;"/>
+
   </Layout>
+
+  
+  <ColorSelector v-if="selectedProduct" :modelValue="selectedColor" :colors="selectedProduct.colors" @update:modelValue="updateSelectedColor" />
+
 </template>
 
 <script setup>
@@ -27,15 +32,33 @@ import { useStore } from 'vuex'
 import Product3D from '../components/Product3D.vue';
 import Layout from '../components/Layout.vue';
 import CustomBtn from '../components/CustomBtn.vue';
+import ColorSelector from '../components/ColorSelector.vue';
 
 const store = useStore()
 const selectedProduct = ref(null)
 const selectedCollection = computed(() => store.state.selectedCollection)
+const selectedColor = computed(() => store.state.selectedColor)
 
 const selectProduct = (product) => {
   selectedProduct.value = product
-  store.commit('selectProduct', product) // Agrega esta línea para almacenar el producto seleccionado en el store
+  store.commit('selectProduct', product)
+
 }
+
+const selectedProductImages = computed(() => {
+  if (selectedProduct.value && selectedProduct.value.colorImages && selectedColor.value) {
+    return selectedProduct.value.colorImages[selectedColor.value] || [];
+  }
+  return [];
+});
+
+const updateSelectedColor = (color) => {
+  store.commit('selectColor', color);
+}
+
+
+
+
 
 onMounted(() => {
   if (selectedCollection.value && selectedCollection.value.products && selectedCollection.value.products.length > 0) {
@@ -88,6 +111,11 @@ h2{
 
 .container{
   margin: 0 auto !important;
+}
+
+.colorsitos{
+  display: flex;
+  flex-direction: row;
 }
 
 </style>
