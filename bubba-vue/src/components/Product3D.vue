@@ -7,12 +7,20 @@
     @touchmove="touchDragging" 
     @touchend="stopTouchDrag"
   >
-  <img v-if="images[currentFrame]" :src="images[currentFrame]" alt="3D product" @dragstart.prevent="preventImageDrag" />
+  <img v-if="images && images.length && images[currentFrame]" :src="images[currentFrame]" alt="3D product" @dragstart.prevent="preventImageDrag" />
+
+
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { watch } from 'vue';
+
+watch(() => props.images, () => {
+  currentFrame.value = 0;
+});
+
 
 const props = defineProps({
   images: {
@@ -84,8 +92,7 @@ const updateFrame = (x) => {
 
   
   img {
-  
-    width: 690px
+    width: 100%
   }
   </style>
   

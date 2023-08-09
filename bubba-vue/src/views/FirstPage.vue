@@ -1,18 +1,25 @@
 <template>
   <Layout>
-    <div class="layout-paso1"></div>
     <template #title>
-      <h1 class="title">COLLECTIONS</h1>
+      <h1 class="title">COLECCIONES</h1>
     </template>
-    <div class="paso1-container">
-      <div v-if="collections" v-for="collection in collections" :key="collection.id" @click="selectCollection(collection)" class="paso1-content">
-        <img :src="collection.imageUrl" :alt="collection.title" />
-        <div class="paso1-text">
-          <h3>{{ collection.title }}</h3>
-          <p>{{ collection.subtitle }}</p>
+    <template #content>
+      <div class="paso1-container">
+        <div 
+          v-if="collections" 
+          v-for="collection in collections" 
+          :key="collection.id" 
+          @click="selectCollection(collection)" 
+          class="paso1-content"
+        >
+          <img :src="collection.imageUrl" :alt="collection.title" />
+          <div class="paso1-text">
+            <h3>{{ collection.title }}</h3>
+            <p>{{ collection.subtitle }}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </Layout>
 </template>
 
@@ -40,18 +47,29 @@ h1, h2, h3, p{
   font-family: 'GothamMedium';
   font-weight: 200;
 }
-.paso1-content{
+h3{
+  font-size: 1.7rem;
+  line-height: 0.5rem;
+  font-weight: 100;
+  margin-bottom: 0;
+}
+p{
+  font-size: 1rem;
+}
+
+.paso1-content {
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  line-height: 5px;
-  margin-top: 70px;
 }
 
-.paso1-content img{
-  width: 60%;
+.paso1-content img {
+  max-width: auto;
+  max-height: 200px;
+  object-fit: contain;
 }
 
 
