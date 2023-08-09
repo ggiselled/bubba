@@ -10,20 +10,19 @@
           <template #carteras>
             <div class="paso1-container">
               <div 
-                v-if="collections" 
-                v-for="collection in collections" 
-                :key="collection.id" 
-                @click="selectCollection(collection)" 
+                v-if="selectedCollection" 
+                v-for="product in selectedCollection.products" :key="product.id" @click="selectProduct(product)"
                 class="paso1-content"
               >
-                <img :src="collection.imageUrl" :alt="collection.title" />
+              <img :src="product.imageUrl" :alt="product.name" />
               </div>
             </div>
           </template>
           <template #modelo-3D>
-
-                <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
-
+            <Product3D v-if="selectedProduct" :images="selectedProductImages"/>
+          </template>
+          <template #colores>
+            <ColorSelector v-if="selectedProduct" :modelValue="selectedColor" :colors="selectedProduct.colors" @update:modelValue="updateSelectedColor" />
           </template>
       </LayoutContenido>
     </template>
@@ -40,28 +39,48 @@ import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import Product3D from '../components/Product3D.vue';
 import Layout from '../components/Layout.vue';
-import CustomBtn from '../components/CustomBtn.vue';
 import LayoutContenido from '../components/SecondPage/LayoutContenido.vue';
+import CustomBtn from '../components/CustomBtn.vue';
+import ColorSelector from '../components/ColorSelector.vue';
+
 const store = useStore()
 const selectedProduct = ref(null)
 const selectedCollection = computed(() => store.state.selectedCollection)
-const collections = computed(() => store.state.collections)
+const selectedColor = computed(() => store.state.selectedColor)
 
-const selectCollection = (collection) => {
-  store.commit('selectCollection', collection)
-  router.push({ path: '/producto' })
-}
 const selectProduct = (product) => {
   selectedProduct.value = product
-  store.commit('selectProduct', product) // Agrega esta línea para almacenar el producto seleccionado en el store
+  store.commit('selectProduct', product)
+
 }
+
+
+
+
+
+
+
+const selectedProductImages = computed(() => {
+  if (selectedProduct.value && selectedProduct.value.colorImages && selectedColor.value) {
+    return selectedProduct.value.colorImages[selectedColor.value] || [];
+  }
+  return [];
+});
+
+const updateSelectedColor = (color) => {
+  store.commit('selectColor', color);
+}
+
+
+
+
 
 onMounted(() => {
   if (selectedCollection.value && selectedCollection.value.products && selectedCollection.value.products.length > 0) {
-  selectProduct(selectedCollection.value.products[0]);
-} else {
-  console.log("error en onMounted");
-}
+    selectProduct(selectedCollection.value.products[0]);
+
+    console.log(selectedProductImages)
+  }
 });
 
 const goToPaso3 = () => {
