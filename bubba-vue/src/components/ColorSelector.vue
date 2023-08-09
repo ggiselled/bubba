@@ -30,7 +30,7 @@ const selectColor = (color) => {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    
+    margin-left: 65px;
     border: white 5px solid;
   }
   .color {
