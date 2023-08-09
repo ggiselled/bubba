@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template #title>
-      <h1 class="title">COLLECTIONS</h1>
+      <h1 class="title">COLECCIONES</h1>
     </template>
     <template #content>
       <div class="paso1-container">
@@ -56,14 +56,6 @@ h3{
 p{
   font-size: 1rem;
 }
-/* .paso1-container {
-  height: 100%; 
-  overflow-y: auto; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-} */
 
 .paso1-content {
   height: 300px;

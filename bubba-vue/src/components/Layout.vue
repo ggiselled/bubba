@@ -5,7 +5,6 @@
         <img class="logo" src="../../public/Logo/logo-bubba_600x800px_2.jpg" alt="Logo">
       </a>
       <div class="logo-line"></div>
-      <!-- <slot name="logo"></slot> -->
       <slot name="title"></slot>
     </header>
     <main class="content">
@@ -66,7 +65,7 @@ const { useContainer } = toRefs(props)
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 1px;
+  height: 2px;
   margin: 0 auto;
   background-color: black;
   z-index: 2;
@@ -75,19 +74,8 @@ const { useContainer } = toRefs(props)
 }
 .content {
     max-height: 80%;
-    overflow-y: auto; /* Esto permite el desplazamiento si el contenido es más alto que el contenedor */
+    overflow-y: auto; 
   }
-/* .content {
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.centered-content {
-  width: 100%;
-} */
 
 .footer {
   text-align: center;

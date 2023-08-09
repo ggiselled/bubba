@@ -7,51 +7,24 @@
     </template>
     <template #content>
       <LayoutContenido>
-        <!-- <div class="product-container"> -->
-          <!-- CARTERAS -->
-          <!-- <template #carteras>
-            <div class="product-content">
-              <div 
-                class="product-contentProducts" 
-                v-if="selectedCollection" 
-                v-for="product in selectedCollection.products" 
-                :key="product.id" 
-                @click="selectProduct(product)"
-              >
-                <img :src="product.imageUrl" :alt="product.name" />
-              </div>
-            </div> 
-          </template> -->
           <template #carteras>
-            <div class="product-content">
+            <div class="paso1-container">
               <div 
-                class="product-contentProducts" 
-                v-if="selectedCollection" 
-                v-for="product in selectedCollection.products" 
-                :key="product.id" 
-                @click="selectProduct(product)"
+                v-if="collections" 
+                v-for="collection in collections" 
+                :key="collection.id" 
+                @click="selectCollection(collection)" 
+                class="paso1-content"
               >
-                <img :src="product.imageUrl" :alt="product.name" />
+                <img :src="collection.imageUrl" :alt="collection.title" />
               </div>
-            </div> 
-            <!-- <div class="product-content">
-              <div class="product-contentProducts" v-if="selectedCollection">
-                <div
-                  v-for="product in selectedCollection.products"
-                  :key="product.id"
-                  @click="selectProduct(product)"
-                >
-                  <img :src="product.imageUrl" :alt="product.name" />
-                </div>
-              </div>
-            </div> -->
+            </div>
           </template>
           <template #modelo-3D>
 
                 <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
 
           </template>
-        <!-- </div> -->
       </LayoutContenido>
     </template>
     <template #footer>
@@ -65,7 +38,6 @@ import { onMounted } from 'vue';
 import router from '../router/index.js'
 import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
-import ProductItem from '../components/SecondPage/ProductItem.vue';
 import Product3D from '../components/Product3D.vue';
 import Layout from '../components/Layout.vue';
 import CustomBtn from '../components/CustomBtn.vue';
@@ -73,7 +45,12 @@ import LayoutContenido from '../components/SecondPage/LayoutContenido.vue';
 const store = useStore()
 const selectedProduct = ref(null)
 const selectedCollection = computed(() => store.state.selectedCollection)
+const collections = computed(() => store.state.collections)
 
+const selectCollection = (collection) => {
+  store.commit('selectCollection', collection)
+  router.push({ path: '/producto' })
+}
 const selectProduct = (product) => {
   selectedProduct.value = product
   store.commit('selectProduct', product) // Agrega esta línea para almacenar el producto seleccionado en el store
@@ -116,7 +93,7 @@ h2{
 .product-container{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space;
   align-items: center;
   margin-top: 80px;
   overflow-x: hidden;
@@ -125,7 +102,7 @@ h2{
 .product-content{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space;
   align-items: center;
 }
 
@@ -145,19 +122,34 @@ h2{
 
 .product-content {
   display: flex;
-  justify-content: space-between; /* Para alinear los objetos a los extremos */
+  justify-content: space-between; 
   align-items: center;
 }
 
 .product-contentProducts-container {
   display: flex;
-  flex-wrap: wrap; /* Para asegurar que los elementos se envuelvan en una nueva línea si no caben en una sola */
+  flex-wrap: wrap;
   justify-content: center;
-  width: 70%; /* Ajusta el ancho del contenedor según tus necesidades */
+  width: 70%;
 }
 
 .product-contentProducts {
-  margin: 10px; /* Ajusta el margen entre los objetos según tus necesidades */
+  margin: 10px;
+}
+
+.paso1-content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.paso1-content img {
+  max-width: auto;
+  max-height: 100px;
+  object-fit: contain;
 }
 
 </style>
