@@ -79,8 +79,9 @@ const updateSelectedColor = (color) => {
 onMounted(() => {
   if (selectedCollection.value && selectedCollection.value.products && selectedCollection.value.products.length > 0) {
     selectProduct(selectedCollection.value.products[0]);
-
-    console.log(selectedProductImages)
+    if (selectedProduct.value.colors && selectedProduct.value.colors.length > 0) {
+      store.commit('selectColor', selectedProduct.value.colors[0]);
+    }
   }
 });
 
