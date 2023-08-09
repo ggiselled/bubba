@@ -27,6 +27,11 @@ const selectColor = (color) => {
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    
+    border: white 5px solid;
   }
   .color {
     width: 20px;
@@ -38,7 +43,7 @@ const selectColor = (color) => {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    margin-top: 10px;
+
   }
 
   .color img {
