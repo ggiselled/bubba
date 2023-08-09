@@ -1,7 +1,7 @@
 <template>
 
     <div v-for="color in colors" :key="color" @click="selectColor(color)" class="container">
-      <div :style="{backgroundColor: color, border: modelValue === color ? '2px solid black' : 'none' }" class="color"></div>
+      <div :style="{backgroundColor: color, border: modelValue === color ?  `2px solid ${color}` : 'none' }" class="color"></div>
 
   </div>
 </template>
