@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div v-for="color in colors" :key="color" @click="selectColor(color)">
-      <div :style="{backgroundColor: color, border: modelValue === color ? '2px solid black' : 'none' }"></div>
-    </div>
+
+    <div v-for="color in colors" :key="color" @click="selectColor(color)" class="container">
+      <div :style="{backgroundColor: color, border: modelValue === color ? '2px solid black' : 'none' }" class="color"></div>
+
   </div>
 </template>
 
@@ -21,12 +21,37 @@ const selectColor = (color) => {
 
   
   <style scoped>
-    div {
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .color img {
+    max-width: auto;
+    max-height: 100px;
+    object-fit: contain;
+  }
+    /* div {
       width: 20px;
       height: 20px;
       border-radius: 50%;
       cursor: pointer;
       
-    }
+    } */
   </style>
   

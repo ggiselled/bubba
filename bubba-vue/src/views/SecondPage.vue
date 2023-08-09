@@ -15,6 +15,7 @@
                 class="paso1-content"
               >
               <img :src="product.imageUrl" :alt="product.name" />
+                <p>{{ product.name }}</p>
               </div>
             </div>
           </template>
@@ -91,7 +92,7 @@ const goToPaso3 = () => {
 <style scoped>
 @import '../assets/style/globals.scss';
 
-h1, h2{
+h1, h2, p{
   font-family: 'GothamMedium';
 
 }
@@ -106,6 +107,9 @@ h2{
   font-size: 1.7rem;
   line-height: 0.5rem;
   font-weight: 100;
+
+}
+p {
 
 }
 
