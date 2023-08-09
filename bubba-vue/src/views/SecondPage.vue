@@ -97,16 +97,19 @@ const goToPaso3 = () => {
 
 h1, h2{
   font-family: 'GothamMedium';
-  font-weight: 100;
+
 }
 
 h1 {
   font-size: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 h2{
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 0.5rem;
+  font-weight: 100;
 
 }
 

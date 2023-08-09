@@ -1,12 +1,17 @@
 <template>
   <Layout>
-    <div class="layout-paso1"></div>
     <template #title>
       <h1 class="title">COLLECTIONS</h1>
     </template>
     <template #content>
       <div class="paso1-container">
-        <div v-if="collections" v-for="collection in collections" :key="collection.id" @click="selectCollection(collection)" class="paso1-content">
+        <div 
+          v-if="collections" 
+          v-for="collection in collections" 
+          :key="collection.id" 
+          @click="selectCollection(collection)" 
+          class="paso1-content"
+        >
           <img :src="collection.imageUrl" :alt="collection.title" />
           <div class="paso1-text">
             <h3>{{ collection.title }}</h3>
@@ -42,31 +47,26 @@ h1, h2, h3, p{
   font-family: 'GothamMedium';
   font-weight: 200;
 }
-/* .paso1-content{
+h3{
+  font-size: 1.7rem;
+  line-height: 0.5rem;
+  font-weight: 100;
+  margin-bottom: 0;
+}
+p{
+  font-size: 1rem;
+}
+/* .paso1-container {
+  height: 100%; 
+  overflow-y: auto; 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  line-height: 5px;
-  margin-top: 70px;
-}
-
-.paso1-content img{
-  width: 60%;
+  justify-content: space-around;
 } */
 
-.paso1-container {
-  height: 100vh;
-  overflow-y: hidden; /* No permitir el desplazamiento vertical */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around; /* Espacia los productos equitativamente */
-}
-
 .paso1-content {
-  height: calc(100vh / 3); /* Divide la altura total por 3 para cada producto */
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,8 +75,8 @@ h1, h2, h3, p{
 }
 
 .paso1-content img {
-  max-width: 100%;
-  max-height: 70%; /* Ajusta este valor según la relación de aspecto que desees para las imágenes */
+  max-width: auto;
+  max-height: 200px;
   object-fit: contain;
 }
 

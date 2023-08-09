@@ -54,7 +54,7 @@ textarea:-webkit-autofill:focus {
 }
 .input-field input {
   border: none;
-  border-bottom: 2px solid #999;
+  border-bottom: 3px solid #999;
   padding: 5px 0;
   width: 100%;
 }

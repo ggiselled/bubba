@@ -9,9 +9,7 @@
       <slot name="title"></slot>
     </header>
     <main class="content">
-      <div class="centered-content">
         <slot name="content"></slot>
-      </div>
     </main>
     <footer class="footer">
       <slot name="footer"></slot>
@@ -76,7 +74,7 @@ const { useContainer } = toRefs(props)
   top: -2rem;
 }
 .content {
-    max-height: 100vh;
+    max-height: 80%;
     overflow-y: auto; /* Esto permite el desplazamiento si el contenido es más alto que el contenedor */
   }
 /* .content {
@@ -95,7 +93,7 @@ const { useContainer } = toRefs(props)
   text-align: center;
   margin-bottom: 1rem;
   font-family: 'Gotham Rounded Bold Regular', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: lighter;
   text-align: center;
   height: 10%;
