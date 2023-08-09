@@ -1,22 +1,24 @@
 <template>
     <Layout :titulo="tituloPagina">
-      <div class="pagina3-content">
-        <h2>{{ titulo }}</h2>
-        <DynamicForm
-          :firstName="{ fieldName: 'nombre', label: 'Nombre', placeholder: 'Nombre' }"
-          :lastName="{ fieldName: 'apellido', label: 'Apellido', placeholder: 'Apellido' }"
-          :email="{ fieldName: 'email', label: 'Email', type: 'email', placeholder: 'Email' }"
-        />
-      </div>
+      <template #content>
+        <div class="pagina3-content">
+          <h2 class="title">{{ titulo }}</h2>
+          <DynamicForm
+            :firstName="{ fieldName: 'nombre', label: 'Nombre', placeholder: 'Nombre' }"
+            :lastName="{ fieldName: 'apellido', label: 'Apellido', placeholder: 'Apellido' }"
+            :email="{ fieldName: 'email', label: 'Email', type: 'email', placeholder: 'Email' }"
+          />
+        </div>
+      </template>
       <template #footer>
-        <!-- <p class="footer">MUCHAS GRACIAS</p> -->
+        <p class="footer">MUCHAS GRACIAS</p>
       </template>
     </Layout>
   </template>
   
   <script>
     import Layout from '../components/Layout.vue';
-    import DynamicForm from '../components/EncuestaPage/DynamicForm.vue';
+    import DynamicForm from '../components/FormPage/DynamicForm.vue';
   
     export default {
         data() {
@@ -47,9 +49,12 @@
   <style scoped>
   h2 {
     font-family: 'Gotham Rounded Bold Regular', sans-serif;
-    font-size: 1.4rem;
+    font-size: 22px;
     font-weight:lighter;
     text-align: center;
+    margin: 0px 4rem;
+    /* margin-top: 7rem; */
+    margin-bottom: 6rem;
   }
 
   .pagina3-content {

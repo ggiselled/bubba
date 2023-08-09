@@ -14,22 +14,22 @@
         @input="updateLastName"
       />
       <InputField
+        :type="email.type"
         :fieldName="email.fieldName"
         :label="email.label"
-        :type="email.type"
         :placeholder="email.placeholder"
         @input="updateEmail"
       />
-      <InputField
-        :fieldName="email.fieldName"
-        :label="email.label"
-        :type="email.type"
-        :placeholder="email.placeholder"
-        @input="updateEmail"
+      <RatingComponent
+        :name="name"
+        :maxRating="maxRating"
+        :initialRating="initialRating"
+        v-model="selectedRating"
+        @update:value="handleRatingChange"
       />
-      <div class="rating">
+      <!-- <div class="rating">
         <StarRatingComponent />
-      </div>
+      </div> -->
       <button type="submit">Enviar</button>
     </form>
   </div>
@@ -38,22 +38,31 @@
 <script>
 import InputField from './InputField.vue';
 import { defineComponent } from "vue";
-import StarRatingComponent from './StarRatingComponent.vue';
+// import StarRatingComponent from './StarRatingComponent.vue';
+import { createItem } from '../../api/items-api'
+import RatingComponent from './RatingComponent.vue';
 
 export default defineComponent({
   components: {
-    InputField, StarRatingComponent
+    InputField,
+    RatingComponent 
+    // StarRatingComponent
   },
   props: {
     firstName: { type: Object, required: true },
     lastName: { type: Object, required: true },
     email: { type: Object, required: true },
+    rating: { type: Object, required: true }
   },
   data() {
     return {
       firstNameValue: this.firstName.value,
       lastNameValue: this.lastName.value,
       emailValue: this.email.value,
+      selectedRating: 0,
+      name: 'rating',
+      maxRating: 5,
+      initialRating: 0,
     };
   },
   methods: {
@@ -69,18 +78,39 @@ export default defineComponent({
       this.emailValue = value;
       this.$emit('update:email', value);
     },
-    submitForm() {
-      // You can access the form data from the component's data properties
+    handleRatingChange(value) {
+      this.selectedRating = value;
+      console.log('Rating changed to:', value);
+    },
+    async submitForm() {
+
       const formData = {
+        itemId: "1",
         firstName: this.firstNameValue.target.value,
         lastName: this.lastNameValue.target.value,
         email: this.emailValue.target.value,
+        rating: this.selectedRating,
       };
 
-      // Do something with the formData, like sending it to a server
       console.log(formData);
+      
+      try {
 
-      // Optionally, you can reset the form after submission
+        const data = await createItem(formData);
+        console.log(data)
+
+        this.firstNameValue = '';
+        this.lastNameValue = '';
+        this.emailValue = '';
+
+
+        alert('Formulario enviado con éxito');
+      } catch (error) {
+
+        console.error(error);
+        alert('Hubo un error al enviar el formulario');
+      }
+
       this.firstNameValue = '';
       this.lastNameValue = '';
       this.emailValue = '';

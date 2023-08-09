@@ -5,17 +5,31 @@
       <h2 v-if="selectedCollection">{{ selectedCollection.subtitle }}</h2>
       <h2 v-if="selectedProduct">{{selectedProduct.name }}</h2>
     </template>
-    <div class="product-container">
-      <div class="product-content">
-        <div class="product-contentProducts" v-if="selectedCollection" v-for="product in selectedCollection.products" :key="product.id" @click="selectProduct(product)">
-          <img :src="product.imageUrl" :alt="product.name" />
-        </div>
-      </div>
-      <div class="product-3D">
-        <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
-      </div>
-    </div>
-    <CustomBtn :label="'CONTINUAR'" :onClick="goToPaso3" style="margin-top: -20px;"/>
+    <template #content>
+      <LayoutContenido>
+          <template #carteras>
+            <div class="paso1-container">
+              <div 
+                v-if="collections" 
+                v-for="collection in collections" 
+                :key="collection.id" 
+                @click="selectCollection(collection)" 
+                class="paso1-content"
+              >
+                <img :src="collection.imageUrl" :alt="collection.title" />
+              </div>
+            </div>
+          </template>
+          <template #modelo-3D>
+
+                <Product3D v-if="selectedProduct" :images="selectedProduct.images"/>
+
+          </template>
+      </LayoutContenido>
+    </template>
+    <template #footer>
+      <CustomBtn :label="'CONTINUAR'" :onClick="goToPaso3" style="margin-top: -20px;"/>
+    </template>
   </Layout>
 </template>
 
@@ -27,11 +41,16 @@ import { useStore } from 'vuex'
 import Product3D from '../components/Product3D.vue';
 import Layout from '../components/Layout.vue';
 import CustomBtn from '../components/CustomBtn.vue';
-
+import LayoutContenido from '../components/SecondPage/LayoutContenido.vue';
 const store = useStore()
 const selectedProduct = ref(null)
 const selectedCollection = computed(() => store.state.selectedCollection)
+const collections = computed(() => store.state.collections)
 
+const selectCollection = (collection) => {
+  store.commit('selectCollection', collection)
+  router.push({ path: '/producto' })
+}
 const selectProduct = (product) => {
   selectedProduct.value = product
   store.commit('selectProduct', product) // Agrega esta línea para almacenar el producto seleccionado en el store
@@ -39,8 +58,10 @@ const selectProduct = (product) => {
 
 onMounted(() => {
   if (selectedCollection.value && selectedCollection.value.products && selectedCollection.value.products.length > 0) {
-    selectProduct(selectedCollection.value.products[0]);
-  }
+  selectProduct(selectedCollection.value.products[0]);
+} else {
+  console.log("error en onMounted");
+}
 });
 
 const goToPaso3 = () => {
@@ -53,17 +74,26 @@ const goToPaso3 = () => {
 
 h1, h2{
   font-family: 'GothamMedium';
-  font-weight: 100;
+
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 h2{
-  margin-top: -30px;
+  font-size: 1.7rem;
+  line-height: 0.5rem;
+  font-weight: 100;
+
 }
 
 .product-container{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space;
   align-items: center;
   margin-top: 80px;
   overflow-x: hidden;
@@ -71,8 +101,8 @@ h2{
 
 .product-content{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space;
   align-items: center;
 }
 
@@ -88,6 +118,38 @@ h2{
 
 .container{
   margin: 0 auto !important;
+}
+
+.product-content {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.product-contentProducts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
+}
+
+.product-contentProducts {
+  margin: 10px;
+}
+
+.paso1-content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.paso1-content img {
+  max-width: auto;
+  max-height: 100px;
+  object-fit: contain;
 }
 
 </style>
